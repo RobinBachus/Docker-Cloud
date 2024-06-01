@@ -11,10 +11,11 @@ services:
       - db
   db:
     image: mariadb:latest
+    command: mariadb -u RobinB -p'Testtest123!!' < /mysql/schema.sql
     environment:
       - MYSQL_ROOT_PASSWORD=""
       - MYSQL_DATABASE=rolodex
       - MYSQL_USER=RobinB
       - MYSQL_PASSWORD=Testtest123!!
     volumes:
-      - ./db_data:/var/lib/mysql
+      - ./db:/mysql
