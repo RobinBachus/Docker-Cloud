@@ -2,20 +2,20 @@ version: '3'
 services:
   web:
     image: robinbachus/the-cloud-php:latest
-    command: php -S 0.0.0.0:5000 -t /src
+    command: php -S 0.0.0.0:5000 -t /app
     ports:
       - 5000:5000
     volumes:
-      - ./app:/src
+      - ./app:/app
     depends_on:
       - db
   db:
-    image: mariadb:latest
-    command: mariadb -u RobinB -p'Testtest123!!' < /mysql/schema.sql
+    image: mariadb:latest 
     environment:
       - MYSQL_ROOT_PASSWORD=""
       - MYSQL_DATABASE=rolodex
       - MYSQL_USER=RobinB
       - MYSQL_PASSWORD=Testtest123!!
     volumes:
-      - ./db:/mysql
+    - ./db_data:/var/lib/mysql
+    - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql

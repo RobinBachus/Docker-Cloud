@@ -2,6 +2,9 @@
 // Include database connection file
 include_once("config.php");
 
+$name = $age = $email = "";
+$nameErr = $ageErr = $emailErr = "";
+
 if(isset($_POST['update']))
 {	
 	// Retrieve record values
@@ -9,8 +12,6 @@ if(isset($_POST['update']))
 	$name = mysqli_real_escape_string($mysqli, $_POST['name']);
 	$age = mysqli_real_escape_string($mysqli, $_POST['age']);
 	$email = mysqli_real_escape_string($mysqli, $_POST['email']);	
-
-	$nameErr = $ageErr = $emailErr = "";
 	
 	// Check for empty fields
 	if(empty($name) || empty($age) || empty($email)) {	

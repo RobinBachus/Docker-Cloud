@@ -1,6 +1,6 @@
 <?php
 // Basic connection settings
-$databaseHost = '0.0.0.0';
+$databaseHost = 'db';
 $databaseUsername = 'RobinB';
 $databasePassword = 'Testtest123!!';
 $databaseName = 'rolodex';
